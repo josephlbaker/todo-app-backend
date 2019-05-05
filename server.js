@@ -9,7 +9,8 @@ var
 
 // mongoose instance connection url connection
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/Tododb');
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/Tododb");
+
 
 app.get('/', (req, res) => {
   res.send({ express: 'Hello From Express' });
