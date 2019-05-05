@@ -1,0 +1,27 @@
+{
+  "name": "todo-app-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "mongoose": "^5.5.5",
+    "nodemon": "^1.19.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/josephlbaker/todo-app-backend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/josephlbaker/todo-app-backend/issues"
+  },
+  "homepage": "https://github.com/josephlbaker/todo-app-backend#readme"
+}
