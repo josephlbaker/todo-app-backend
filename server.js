@@ -22,8 +22,8 @@ app.use(cors());
 
 
 var todoRoutes = require('./routes/todoListRoutes');
-var userRoutes = require('./routes/userRoutes');
-app.use('/users', userRoutes);
+// var userRoutes = require('./routes/userRoutes');
+// app.use('/users', userRoutes);
 app.use('/tasks', todoRoutes);
 // todoRoutes(app);
 // userRoutes(app);
