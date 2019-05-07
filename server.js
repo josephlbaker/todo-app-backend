@@ -4,6 +4,7 @@ var
   port = process.env.PORT || 3001,
   mongoose = require('mongoose'),
   Task = require('./models/todoListModel'), //created model loading here
+  User = require('./models/userModel'),
   bodyParser = require('body-parser'),
   cors = require('cors')
 
