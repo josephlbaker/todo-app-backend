@@ -160,25 +160,24 @@
 //   }
 // };
 
+'use strict';
 
 const bcrypt = require("bcrypt");
-const db = require("../models/userModel");
+// const db = require("../models/userModel");
 const jwt = require("jsonwebtoken");
-
-'use strict';
 
 var mongoose = require('mongoose'),
   User = mongoose.model('Users');
 
 exports.index = (res) => {
-  db.User.find({}, (err, foundUsers) => {
+  User.find({}, (err, foundUsers) => {
     if (err) return console.error(err);
     res.json(foundUsers);
   });
 }
 exports.show = (req, res) => {
   if (req.userId) {
-    db.User.findById(req.userId, (err, foundUser) => {
+    User.findById(req.userId, (err, foundUser) => {
       res.json(foundUser);
     });
   } else {
@@ -186,7 +185,7 @@ exports.show = (req, res) => {
   }
 }
 exports.signup = (req, res) => {
-  db.User.find({ email: req.body.email })
+  User.find({ email: req.body.email })
     .exec()
     .then(user => {
       if (user.length >= 1) {
@@ -199,7 +198,7 @@ exports.signup = (req, res) => {
             console.log("Hashing error:", err);
             res.status(200).json({ error: err });
           } else {
-            db.User.create(
+            User.create(
               {
                 firstName: req.body.firstName,
                 lastName: req.body.lastName,
@@ -245,7 +244,7 @@ exports.signup = (req, res) => {
     });
 }
 exports.login = (req, res) => {
-  db.User.find({ email: req.body.email })
+  User.find({ email: req.body.email })
     .select("+password")
     .exec()
     .then(users => {
@@ -296,7 +295,7 @@ exports.login = (req, res) => {
 exports.delete = (req, res) => {
   console.log(req.body);
   let userId = req.body._id;
-  db.User.findOneAndDelete({ _id: userId }, (err, foundUser) => {
+  User.findOneAndDelete({ _id: userId }, (err, foundUser) => {
     if (err) {
       throw err;
     }
@@ -305,7 +304,7 @@ exports.delete = (req, res) => {
 }
 exports.update = (req, res) => {
   let userId = req.params.id;
-  db.User.findOneAndUpdate(
+  User.findOneAndUpdate(
     { _id: userId },
     req.body,
     { new: true },

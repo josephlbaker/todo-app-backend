@@ -1,6 +1,6 @@
-const mongoose = require("mongoose");
-
-Schema = mongoose.Schema;
+'use strict';
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
 
 const UserSchema = new Schema({
   firstName: {
@@ -57,4 +57,4 @@ UserSchema.set("toJSON", {
   }
 });
 
-module.exports = mongoose.model("User", UserSchema);
+module.exports = mongoose.model('Users', UserSchema);
