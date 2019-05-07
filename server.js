@@ -23,8 +23,10 @@ app.use(cors());
 
 var todoRoutes = require('./routes/todoListRoutes');
 var userRoutes = require('./routes/userRoutes');
-todoRoutes(app);
-userRoutes(app);
+app.use('/users', userRoutes);
+app.use('/tasks', todoRoutes);
+// todoRoutes(app);
+// userRoutes(app);
 
 
 app.listen(port);
