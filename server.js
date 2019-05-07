@@ -21,8 +21,10 @@ app.use(bodyParser.json());
 app.use(cors())
 
 
-var routes = require('./routes/todoListRoutes'); //importing route
-routes(app); //register the route
+var todoRoutes = require('./routes/todoListRoutes');
+var userRoutes = require('./routes/userRoutes');
+todoRoutes(app);
+userRoutes(app);
 
 
 app.listen(port);
